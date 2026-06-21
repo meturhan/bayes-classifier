@@ -34,12 +34,14 @@ bayes-classifier/
 flowchart TD
     A[Configure parameters] --> B[Generate random training examples]
     B --> C[Count feature-state occurrences per outcome]
-    C --> D[Compute conditional probabilities<br>P(feature_state | outcome)]
-    D --> E[Display probability tables]
+    C --> D1[Compute conditional probabilities]
+    D1 ~~~ D2[P(feature_state | outcome)]
+    D1 --> E[Display probability tables]
     E --> F[Generate random test sample]
     F --> G[For each outcome class:]
-    G --> H[Compute P(outcome|sample) ∝<br>P(outcome) × Π P(feature_i | outcome)]
-    H --> I[Select outcome with highest probability]
+    G --> H1[Compute P(outcome|sample) ∝]
+    H1 ~~~ H2[P(outcome) × Π P(feature_i | outcome)]
+    H1 --> I[Select outcome with highest probability]
     I --> J[Display classification result]
 ```
 
